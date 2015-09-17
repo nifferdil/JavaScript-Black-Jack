@@ -1,36 +1,28 @@
-var createCard = function (faceValue, suit) {
-  var suits = ["of Clubs", "of Hearts", "of Diamonds", "of Spades"];
-  var faceValues = [2, 3, 4, 5, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"];
-    var card = [];
-    card.push(faceValues, suit);
-    return card;
+var deal = function() {
+  var card = Math.floor((Math.random() * 52) + 1);
+  return card;
+}
+
+var card1 = deal();
+var card2 = deal();
+
+var score = function() {
+  var sum = card1 + card2;
+  return sum;
+}
+
+var getValue = function(card) {
+  if (card % 13 > 10 ||card % 13 === 0 )
+    return card = 10;
+    else if (card % 13 === 1)
+      return card = 11;
+    else
+      return card % 13;
+  }
+
+var score = function() {
+  return getValue(card1) + getValue(card2);
 };
 
-var createDeck = function() {
-  debugger;
-  var suits = ["of Clubs", "of Hearts", "of Diamonds", "of Spades"];
-  var faceValues = [2, 3, 4, 5, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"];
-  var deck = [];
-  for (i = 0; i < suits.length; i++) {
-        for (j = 0; j < faceValues.length; j++) {
-            var deck = faceValues.length*i+j
-        }
-        deck[faceValues.length*i+j] = createCard(faceValues[j], suits[i]);
-    }
-
-  // var deck = suits.concat(faceValues);// var deck = suits.push.apply(suits, faceValues);
-  // var deck = suits.concat(faceValues);
-    return deck;
-};
-
-// $(document).ready(function() {
-//   $("form#dealCards").submit(function(event) {
-//     //var numberInput = $("input#number_input").val();
-//     //var result = howLarge(numberInput);
-//
-//     //$(".answer").text(result);
-//
-//     $("#result").show();
-//     event.preventDefault();
-//   });
-// });
+console.log("You have cards " + card1 + " and " + card2 +
+" for a score of " + score());

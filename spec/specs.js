@@ -1,12 +1,12 @@
-describe('createCard', function(){
-  it("creates a card with a face value and a suit", function(){
-    expect(createCard()).to.equal("2 of Clubs");
+describe('deal', function(){
+  it("creates a card with a value between 1 and 52", function(){
+    expect(card1.valueOf() <= 52).to.equal(true);
   });
 })
 
-// describe('createDeck', function(){
-//   it("creates 52 card deck in array", function(){
-//     expect(createDeck()).to.equal(52);
+// describe('score', function(){
+//   it("adds the value of two cards", function(){
+//     expect(card1.valueOf() + card2.valueOf()).toBe();
 //   });
 // });
 
